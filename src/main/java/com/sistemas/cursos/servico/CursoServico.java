@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 import com.sistemas.escola.dominio.Curso;
 import com.sistemas.escola.repositorio.CursoRepositorio;
 import com.sistemas.escola.repositorio.CursoRepositorioCustom;
-import com.sistemas.escola.servico.excecoes.NaoEncontradoException;
-import com.sistemas.escola.servico.excecoes.ServicoException;
-import com.sistemas.escola.servico.excecoes.ValidacaoException;
+import com.sistemas.cursos.servico.excecoes.NaoEncontradoException;
+import com.sistemas.cursos.servico.excecoes.ServicoException;
+import com.sistemas.cursos.servico.excecoes.ValidacaoException;
 
 
 @Service
