@@ -8,10 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-
-import com.sistemas.cursos.servico.excecoes.NaoEncontradoException;
-import com.sistemas.cursos.servico.excecoes.ServicoException;
-import com.sistemas.cursos.servico.excecoes.ValidacaoException;
+import com.sistemas.escola.servico.excecoes.NaoEncontradoException;
+import com.sistemas.escola.servico.excecoes.ServicoException;
+import com.sistemas.escola.servico.excecoes.ValidacaoException;
 
 
 @ControllerAdvice

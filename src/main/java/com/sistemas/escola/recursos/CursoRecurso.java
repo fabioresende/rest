@@ -16,7 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
 import com.sistemas.escola.dominio.Curso;
-import com.sistemas.cursos.servico.CursoServico;
+import com.sistemas.escola.servico.CursoServico;
 
 
 @RestController
@@ -65,5 +65,7 @@ public class CursoRecurso {
 	private URI getUri(String nome, Integer valor) {
 		return ServletUriComponentsBuilder.fromCurrentRequest().path(nome).buildAndExpand(valor).toUri();
 	}
+
+
 }
 

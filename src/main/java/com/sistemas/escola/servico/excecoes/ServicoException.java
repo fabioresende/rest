@@ -1,11 +1,13 @@
-package com.sistemas.cursos.servico.excecoes;
+package com.sistemas.escola.servico.excecoes;
 
-public class NaoEncontradoException extends RuntimeException {
+
+
+public class ServicoException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 	
 	private Integer codigo;
 	
-	public NaoEncontradoException(String msg, Integer codigo) {
+	public ServicoException(String msg, Integer codigo) {
 		super(msg);
 		this.codigo = codigo;
 	}

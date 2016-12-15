@@ -1,20 +1,17 @@
-package com.sistemas.cursos.servico;
+package com.sistemas.escola.servico;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import com.sistemas.escola.dominio.Aluno;
 import com.sistemas.escola.repositorio.AlunoRepositorio;
-import com.sistemas.escola.repositorio.AlunoRepositorioCustom;
-import com.sistemas.cursos.servico.excecoes.NaoEncontradoException;
-import com.sistemas.cursos.servico.excecoes.ServicoException;
-import com.sistemas.cursos.servico.excecoes.ValidacaoException;
+import com.sistemas.escola.servico.excecoes.NaoEncontradoException;
+import com.sistemas.escola.servico.excecoes.ServicoException;
+import com.sistemas.escola.servico.excecoes.ValidacaoException;
 
 
 @Service
@@ -23,11 +20,6 @@ public class AlunoServico {
 
 	@Autowired
 	private AlunoRepositorio repo;
-
-
-	@Autowired
-	private AlunoRepositorioCustom repoCustom;
-
 
 	public void validar(Aluno x) {
 		List<String> erros = new ArrayList<>();
@@ -56,9 +48,9 @@ public class AlunoServico {
 	}
 	
 	public Aluno inserir(Aluno x) throws ServicoException {
-		Aluno aux = repoCustom.buscarNomeExato(x.getNome());
+		Aluno aux = repo.buscarPorCpf(x.getCpf());
 		if (aux != null) {
-			throw new ServicoException("Já existe um curso com esse nome!", 1);
+			throw new ServicoException("Já existe um aluno com esse nome!", 1);
 		}
 		validar(x);
 		return repo.save(x);
@@ -70,9 +62,9 @@ public class AlunoServico {
 		if (aux == null) {
 			throw new NaoEncontradoException("Aluno não encontrado!", 1);
 		}
-		aux = repoCustom.buscarNomeExato(x.getNome());
+		aux = repo.buscarPorCpf(x.getCpf());
 		if (aux != null && aux.getCodAluno()!=x.getCodAluno()) {
-			throw new ServicoException("Já existe um outro curso com esse nome!", 1);
+			throw new ServicoException("Já existe um outro aluno com esse cpf!", 1);
 		}
 		validar(x);
 		return repo.save(x);
@@ -96,11 +88,11 @@ public class AlunoServico {
 	}
 	
 	public List<Aluno> buscarTodosOrdenadosPorNome() {
-		return repoCustom.buscarTodosOrdenadosPorNome();
+		return repo.buscarTodosOrdenadosPorNome();
 	}
 	
 	public List<Aluno> buscarPorNome(String trecho) {
-		return repoCustom.buscarPorNome(trecho);
+		return repo.buscarPorNome(trecho);
 	}
 }
 

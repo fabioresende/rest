@@ -1,4 +1,4 @@
-package com.sistemas.cursos.servico.excecoes;
+package com.sistemas.escola.servico.excecoes;
 
 import java.util.List;
 
